@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nicepeopleproject.aim_labfxapp.ModesMenuController">
+    <children>
+        <Label layoutX="322.0" layoutY="34.0" text="Modes Menu" textFill="#ff8c00">
+            <font>
+                <Font size="26.0" />
+            </font>
+        </Label>
+      <Button layoutX="321.0" layoutY="128.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="153.0" text="Mode 1" />
+      <Button layoutX="321.0" layoutY="221.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="153.0" text="Mode 2" />
+      <Button layoutX="598.0" layoutY="366.0" mnemonicParsing="false" onAction="#switchToMainScene" prefHeight="60.0" prefWidth="153.0" text="Back" />
+      <Button layoutX="321.0" layoutY="313.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="153.0" text="Mode 3" />
+    </children>
+</AnchorPane>
