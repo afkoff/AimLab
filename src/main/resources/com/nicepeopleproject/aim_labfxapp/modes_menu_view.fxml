@@ -13,7 +13,7 @@
             </font>
         </Label>
       <Button layoutX="321.0" layoutY="128.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="153.0" text="Mode 1" />
-      <Button layoutX="321.0" layoutY="221.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="153.0" text="Mode 2" />
+      <Button layoutX="321.0" layoutY="221.0" mnemonicParsing="false" onAction="#switchToMode2StartScene" prefHeight="60.0" prefWidth="153.0" text="Mode 2" />
       <Button layoutX="598.0" layoutY="366.0" mnemonicParsing="false" onAction="#switchToMainScene" prefHeight="60.0" prefWidth="153.0" text="Back" />
       <Button layoutX="321.0" layoutY="313.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="153.0" text="Mode 3" />
     </children>

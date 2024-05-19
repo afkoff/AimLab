@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96926394-bc81-4786-9426-378172344a15" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nicepeopleproject/aim_labfxapp/DescriptionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nicepeopleproject/aim_labfxapp/ModesMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/nicepeopleproject/aim_labfxapp/description_view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/nicepeopleproject/aim_labfxapp/modes_menu_view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nicepeopleproject/aim_labfxapp/Mode2MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nicepeopleproject/aim_labfxapp/Mode2StartMenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/nicepeopleproject/aim_labfxapp/mode2_main_scene_view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/nicepeopleproject/aim_labfxapp/mode2_start_menu_view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nicepeopleproject/aim_labfxapp/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nicepeopleproject/aim_labfxapp/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nicepeopleproject/aim_labfxapp/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nicepeopleproject/aim_labfxapp/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/nicepeopleproject/aim_labfxapp/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/nicepeopleproject/aim_labfxapp/main_view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nicepeopleproject/aim_labfxapp/ModesMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nicepeopleproject/aim_labfxapp/ModesMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/nicepeopleproject/aim_labfxapp/modes_menu_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/nicepeopleproject/aim_labfxapp/modes_menu_view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,15 +45,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.MainApplication.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Mode2MainController.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Документы Aleksandr Afk/Programming/IDEA Community Edition/Projects/GameSnake&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
