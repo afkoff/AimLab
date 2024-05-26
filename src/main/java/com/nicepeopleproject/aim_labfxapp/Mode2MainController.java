@@ -5,6 +5,9 @@ import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.lang.Math;
+import java.awt.Point;
+import java.awt.MouseInfo;
 
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -16,8 +19,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
 
 public class Mode2MainController  {
 
@@ -37,9 +42,17 @@ public class Mode2MainController  {
     private Label timeLabel;
 
     private Timeline timeline;
+    private Timeline programTimer;
+    private Timeline checkMouseTimer;
     private int buttonSpeedX = 1;
     private int buttonSpeedY = 1;
+    private Random random = new Random();
     private long totalHoldTime;
+    private boolean isMouseInButton = false; // Флаг для проверки нахождения мыши на кнопке
+    private boolean isMousePressed = false;
+    private Point mouseCoordinates;
+    private int releaseCount = 0;
+
 
 
 
@@ -54,9 +67,11 @@ public class Mode2MainController  {
                 "-fx-max-width: 100px; " + /* Максимальная ширина кнопки */
                 "-fx-max-height: 100px; "); /* Максимальная высота кнопки */
         Random random = new Random();
+        mouseCoordinates = new Point(0, 0);
 
         button.setOnMousePressed(e -> {
-            if (timeline == null) {
+            isMousePressed = true;
+            if (timeline == null ) {
                 timeline = new Timeline(new KeyFrame(Duration.millis(100), event -> updateHoldTime()));
                 timeline.setCycleCount(Timeline.INDEFINITE);
                 timeline.play();
@@ -64,10 +79,27 @@ public class Mode2MainController  {
         });
 
         button.setOnMouseReleased(e -> {
+            isMousePressed = false;
             if (timeline != null) {
                 timeline.stop();
                 timeline = null;
             }
+            releaseCount++;
+            if (releaseCount >= 3) {
+                releaseCount = 0;
+                resetGame();
+            }
+        });
+
+
+        button.setOnMouseMoved(e -> {
+            updateMouseCoordinates();
+            isMouseInButton = isMouseInCircle(button, mouseCoordinates.getX(), mouseCoordinates.getY());
+        });
+
+        button.setOnMouseDragged(e -> {
+            updateMouseCoordinates();
+            isMouseInButton = isMouseInCircle(button, mouseCoordinates.getX(), mouseCoordinates.getY());
         });
 
         AtomicInteger elapsedTime = new AtomicInteger();
@@ -111,19 +143,7 @@ public class Mode2MainController  {
 
         // Таймер для закрытия программы через 10 секунд
         Timeline programTimer = new Timeline(new KeyFrame(Duration.seconds(10), event -> {
-            // Ваш код для перехода на сцену mode2_start_scene_view
-            Platform.runLater(() -> {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("mode2_start_menu_view.fxml"));
-                Parent root;
-                try {
-                    root = loader.load();
-                    Stage stage = (Stage) timeLabel.getScene().getWindow();
-                    Scene scene = new Scene(root);
-                    stage.setScene(scene);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
+            resetGame();
         }));
         programTimer.setCycleCount(Animation.INDEFINITE);
         programTimer.play();
@@ -135,11 +155,73 @@ public class Mode2MainController  {
         }));
         timeUpdateTimer.setCycleCount(Animation.INDEFINITE);
         timeUpdateTimer.play();
+        // Проверка нахождения мыши внутри круга каждую секунду
+        checkMouseTimer = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+            updateMouseCoordinates();
+            isMouseInButton = isMouseInCircle(button, mouseCoordinates.getX(), mouseCoordinates.getY());
+        }));
+        checkMouseTimer.setCycleCount(Timeline.INDEFINITE);
+        checkMouseTimer.play();
+        // Обновление времени удерживания каждую секунду
+        Timeline holdTimeUpdateTimer = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+            if (isMouseInButton & isMousePressed) { // Если мышь зажата и находится внутри круга
+                updateHoldTime();
+            }
+        }));
+        holdTimeUpdateTimer.setCycleCount(Timeline.INDEFINITE);
+        holdTimeUpdateTimer.play();
+
+
     }
 
+    // Метод для обновления координат курсора мыши относительно кнопки
+    private void updateMouseCoordinates() {
+        Point mouseLocation = MouseInfo.getPointerInfo().getLocation();
+        mouseCoordinates = getMouseCoordinatesRelativeToButton(button, mouseLocation.getX(), mouseLocation.getY());
+    }
+
+    // Метод для получения координат мыши относительно кнопки
+    private Point getMouseCoordinatesRelativeToButton(Button button, double mouseX, double mouseY) {
+        double sceneX = mouseX;
+        double sceneY = mouseY;
+
+        double buttonSceneX = button.localToScene(button.getBoundsInLocal()).getMinX();
+        double buttonSceneY = button.localToScene(button.getBoundsInLocal()).getMinY();
+
+        double relativeX = sceneX - buttonSceneX;
+        double relativeY = sceneY - buttonSceneY;
+
+        return new Point((int) relativeX, (int) relativeY);
+    }
+
+    // Метод для проверки нахождения мыши в круге
+    private boolean isMouseInCircle(Button button, double mouseX, double mouseY) {
+        double centerX = button.getLayoutX() + button.getWidth() / 2;
+        double centerY = button.getLayoutY() + button.getHeight() / 2;
+        double radius = button.getWidth() / 2;
+        double distance = Math.sqrt(Math.pow(mouseX - centerX, 2) + Math.pow(mouseY - centerY, 2));
+        return distance <= radius;
+    }
+
+
     private void updateHoldTime() {
+
         totalHoldTime += 100;
         holdTimeLabel.setText("Время удерживания: " + totalHoldTime / 1000 + " сек");
+
+    }
+    private void resetGame() {
+
+        // Перемещаем кнопку в случайное место на экране
+        double sceneWidth = button.getScene().getWidth();
+        double sceneHeight = button.getScene().getHeight();
+        button.setLayoutX(random.nextDouble() * (sceneWidth - button.getWidth()));
+        button.setLayoutY(random.nextDouble() * (sceneHeight - button.getHeight()));
+
+        // Перезапускаем таймер
+        programTimer.stop();
+        programTimer.playFromStart();
     }
 
 }
+
