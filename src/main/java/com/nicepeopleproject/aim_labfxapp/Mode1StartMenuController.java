@@ -11,33 +11,26 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class ModesMenuController {
-    private Stage stage;
+public class Mode1StartMenuController {
+
     @FXML
     private ResourceBundle resources;
-
+    private Stage stage;
     @FXML
     private URL location;
 
     @FXML
-    void switchToMainScene(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("main_view.fxml"));
+    void switchToMode1MainScene(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("mode1_main_scene_view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
+
     @FXML
-    void switchToMode2StartScene(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("mode2_start_menu_view.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-    @FXML
-    void switchToMode1StartScene(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("mode1_start_menu_view.fxml"));
+    void switchToModesMenuScene(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("modes_menu_view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);

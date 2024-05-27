@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.ScrollPane?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nicepeopleproject.aim_labfxapp.DescriptionController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nicepeopleproject.aim_labfxapp.DescriptionController">
     <children>
         <Label layoutX="269.0" layoutY="42.0" text="Description of Aim Lab" textFill="#ff8c00">
             <font>
@@ -14,10 +13,18 @@
             </font>
         </Label>
         <Button layoutX="585.0" layoutY="362.0" mnemonicParsing="false" onAction="#switchToMainScene" prefHeight="54.0" prefWidth="148.0" text="Back" />
-        <ScrollPane layoutX="180.0" layoutY="240.0" prefHeight="170.0" prefWidth="330.0">
-            <content>
-                <Label text="Aim Lab - это полезный тренажер &#13; для улучшения навыков в шутерах от первого лица. &#13;Тренирует реакцию, меткость, стрельбу. Первый режим - &#13;основной и дефолтный. Ваша задача - попадать в шар. &#13;Если попадаете, то ваш счет увеличивается. &#13;Суть второго режима состоит в том, чтобы удерживать &#13;мышкой шарик, пока он двигается. Благодаря этому &#13;оттачиваются навыки трекинга, то есть навыки ведения &#13;прицела за движущейся моделью." />
-            </content>
-        </ScrollPane>
+      <Label layoutX="114.0" layoutY="111.0" text="Дорогие игроки Aim Дорогие игроки Aim Lab!!" />
+      <Label layoutX="114.0" layoutY="128.0" text="Мы, разработчики этой удивительной игры, хотели бы поприветствовать вас в мире точности и мастерства! Aim" />
+      <Label layoutX="114.0" layoutY="145.0" text="Lab не просто игра, это настоящий тренажер для вашего мозга и реакции." />
+      <Label layoutX="114.0" layoutY="162.0" text="Сквозь каждый клик мы стремимся сделать ваши навыки еще более точными, а реакцию – еще более" />
+      <Label layoutX="114.0" layoutY="179.0" text="молниеносной. Погрузитесь в множество режимов тренировок, испытайте свои способности и улучшайте" />
+      <Label layoutX="114.0" layoutY="196.0" text="результаты с каждой минутой игрового времени." />
+      <Label layoutX="114.0" layoutY="213.0" text="Помните, что каждое усилие, каждое упражнение в Aim Lab приближает вас к совершенству. Улучшайте навыки," />
+      <Label layoutX="114.0" layoutY="230.0" text="соревнуйтесь с собой и другими игроками, идите к победе с нами!" />
+      <Label layoutX="114.0" layoutY="247.0" text="Будьте настойчивы, стремитесь к лучшему и не забывайте, что в вашем распоряжении – неисчерпаемый" />
+      <Label layoutX="114.0" layoutY="264.0" text="потенциал для достижения целей. Добро пожаловать в мир Aim Lab, где каждый ваш выстрел – шаг к" />
+      <Label layoutX="114.0" layoutY="281.0" text="совершенству!" />
+      <Label layoutX="114.0" layoutY="298.0" text="С уважением," />
+      <Label layoutX="114.0" layoutY="315.0" text="Команда разработчиков Aim Lab" />
     </children>
 </AnchorPane>

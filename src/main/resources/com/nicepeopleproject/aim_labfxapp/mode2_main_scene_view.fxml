@@ -4,11 +4,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nicepeopleproject.aim_labfxapp.Mode2MainController">
    <children>
-      <Label fx:id="holdTimeLabel" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="225.0" text="Label" />
-      <Label fx:id="timeLabel" layoutX="14.0" layoutY="31.0" prefHeight="17.0" prefWidth="225.0" text="Label" />
+      <Label fx:id="countLabel" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="309.0" text="Label" />
+      <Label fx:id="timeLabel" layoutX="14.0" layoutY="31.0" prefHeight="17.0" prefWidth="309.0" text="Label" />
+      <Label fx:id="holdTimeLabel" layoutX="14.0" layoutY="48.0" prefHeight="17.0" prefWidth="351.0" text="Label" />
+      <Label fx:id="holdTimeLabel1" layoutX="14.0" layoutY="65.0" prefHeight="17.0" prefWidth="351.0" text="Label" />
       <Button fx:id="button" layoutX="374.0" layoutY="228.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="745.0" layoutY="440.0" mnemonicParsing="false" onAction="#switchToMode2StartMenuScene" text="Back" />
    </children>
 </AnchorPane>

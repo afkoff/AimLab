@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
@@ -6,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96926394-bc81-4786-9426-378172344a15" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nicepeopleproject/aim_labfxapp/Mode1StartMenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/nicepeopleproject/aim_labfxapp/mode1_main_scene_view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/nicepeopleproject/aim_labfxapp/mode1_start_menu_view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nicepeopleproject/aim_labfxapp/Mode2MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nicepeopleproject/aim_labfxapp/Mode2MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nicepeopleproject/aim_labfxapp/ModesMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nicepeopleproject/aim_labfxapp/ModesMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/nicepeopleproject/aim_labfxapp/description_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/nicepeopleproject/aim_labfxapp/description_view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/nicepeopleproject/aim_labfxapp/mode2_main_scene_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/nicepeopleproject/aim_labfxapp/mode2_main_scene_view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/nicepeopleproject/aim_labfxapp/modes_menu_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/nicepeopleproject/aim_labfxapp/modes_menu_view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +38,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -53,7 +59,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Aleksandr/AimLab"
+    "last_opened_file_path": "C:/Документы Aleksandr Afk/Programming/IDEA Community Edition/Projects/Project"
   }
 }]]></component>
   <component name="RunManager">
@@ -74,8 +80,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401" />
         <option value="jdk-21.0.2-corretto-21.0.2-4caba194b151-51586f01" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
       </set>
     </attachedChunks>
   </component>

@@ -13,8 +13,10 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -28,6 +30,7 @@ public class Mode2MainController  {
 
     @FXML
     private ResourceBundle resources;
+    private Stage stage;
 
     @FXML
     private URL location;
@@ -37,9 +40,15 @@ public class Mode2MainController  {
 
     @FXML
     private Label holdTimeLabel;
+    @FXML
+    private Label countLabel;
+    private int count = 100;
 
     @FXML
     private Label timeLabel;
+    @FXML
+    private Label holdTimeLabel1;
+    private int holdTime1 = 0;
 
     private Timeline timeline;
     private Timeline programTimer;
@@ -49,10 +58,16 @@ public class Mode2MainController  {
     private Random random = new Random();
     private long totalHoldTime;
     private boolean isMouseInButton = false; // Флаг для проверки нахождения мыши на кнопке
-    private boolean isMousePressed = false;
     private Point mouseCoordinates;
     private int releaseCount = 0;
-
+    @FXML
+    void switchToMode2StartMenuScene(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("mode2_start_menu_view.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
 
 
@@ -69,8 +84,7 @@ public class Mode2MainController  {
         Random random = new Random();
         mouseCoordinates = new Point(0, 0);
 
-        button.setOnMousePressed(e -> {
-            isMousePressed = true;
+        button.setOnMouseEntered(e -> {
             if (timeline == null ) {
                 timeline = new Timeline(new KeyFrame(Duration.millis(100), event -> updateHoldTime()));
                 timeline.setCycleCount(Timeline.INDEFINITE);
@@ -78,8 +92,7 @@ public class Mode2MainController  {
             }
         });
 
-        button.setOnMouseReleased(e -> {
-            isMousePressed = false;
+        button.setOnMouseExited(e -> {
             if (timeline != null) {
                 timeline.stop();
                 timeline = null;
@@ -110,7 +123,7 @@ public class Mode2MainController  {
 
             if (elapsedTime.get() >= 2000) {
                 double randomAngle = random.nextDouble() * 2 * Math.PI;
-                int speed = 3;
+                int speed = 5;
 
                 buttonSpeedX = (int) (speed * Math.cos(randomAngle));
                 buttonSpeedY = (int) (speed * Math.sin(randomAngle));
@@ -142,16 +155,21 @@ public class Mode2MainController  {
         buttonMoveTimer.play();
 
         // Таймер для закрытия программы через 10 секунд
-        Timeline programTimer = new Timeline(new KeyFrame(Duration.seconds(10), event -> {
-            resetGame();
-        }));
-        programTimer.setCycleCount(Animation.INDEFINITE);
-        programTimer.play();
+            Timeline programTimer = new Timeline(new KeyFrame(Duration.seconds(10), event -> {
+                resetGame();
+            }));
+            programTimer.setCycleCount(Animation.INDEFINITE);
+            programTimer.play();
 
         // Обновление оставшегося времени раз в секунду
         Timeline timeUpdateTimer = new Timeline(new KeyFrame(Duration.seconds(0.1), event -> {
             long remainingTime = 10 - (long) Math.ceil(programTimer.getCurrentTime().toSeconds());
             timeLabel.setText("Оставшееся время: " + remainingTime + " сек");
+            if(count % 100 == 0)
+            {
+                countLabel.setText("Номер текущей попытки: " + count/100);
+            }
+            count ++;
         }));
         timeUpdateTimer.setCycleCount(Animation.INDEFINITE);
         timeUpdateTimer.play();
@@ -164,10 +182,11 @@ public class Mode2MainController  {
         checkMouseTimer.play();
         // Обновление времени удерживания каждую секунду
         Timeline holdTimeUpdateTimer = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
-            if (isMouseInButton & isMousePressed) { // Если мышь зажата и находится внутри круга
+            if (isMouseInButton)
+            {
                 updateHoldTime();
             }
-        }));
+            }));
         holdTimeUpdateTimer.setCycleCount(Timeline.INDEFINITE);
         holdTimeUpdateTimer.play();
 
@@ -205,10 +224,10 @@ public class Mode2MainController  {
 
 
     private void updateHoldTime() {
-
+        holdTime1 += 100;
         totalHoldTime += 100;
-        holdTimeLabel.setText("Время удерживания: " + totalHoldTime / 1000 + " сек");
-
+        holdTimeLabel.setText("Общее время удерживания: " + totalHoldTime / 1000 + " сек");
+        holdTimeLabel1.setText("Время удерживания текущей попытки: " + holdTime1 / 1000 + " сек");
     }
     private void resetGame() {
 
@@ -219,6 +238,8 @@ public class Mode2MainController  {
         button.setLayoutY(random.nextDouble() * (sceneHeight - button.getHeight()));
 
         // Перезапускаем таймер
+        holdTime1 = 0;
+        holdTimeLabel1.setText("Время удерживания текущей попытки: " + holdTime1 / 1000 + " сек");
         programTimer.stop();
         programTimer.playFromStart();
     }
